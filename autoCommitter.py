@@ -1,7 +1,7 @@
 import os
 
 fileName = str(input("File to be committed [* for all files]: "))
-commitMessage = str(input("Message for the commit [Leave blank for null]: "))
+commitMessage = str(input("Message for the commit [Null = [Uploaded with autoCommit]]: "))
 
 def commit():
     try:
@@ -10,7 +10,11 @@ def commit():
             else:
                 os.system('git add "' + fileName + '"')
 
-            os.system('git commit -m "' + commitMessage + '"')
+            if commitMessage == "":
+                os.system('git commit -m "[Uploaded with autoCommit]"')
+            else:
+                os.system('git commit -m "' + commitMessage + '"')
+
             os.system('git push')
             print("File successfully committed and pushed to repo!")
     except:
