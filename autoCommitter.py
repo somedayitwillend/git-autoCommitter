@@ -16,7 +16,7 @@ def commit():
                 os.system('git commit -m "' + commitMessage + '"')
 
             os.system('git push')
-            print("File successfully committed and pushed to repo!")
+            print("File(s) successfully committed and pushed to repo!")
     except:
             print("Something went wrong!")
 
