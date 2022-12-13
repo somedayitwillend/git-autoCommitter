@@ -1,14 +1,14 @@
 import os
 
-fileName = str(input("File(s) to be committed [* for all files]: "))
+fileName = str(input("File(s) to be committed [Null = all files]: "))
 commitMessage = str(input("Message for the commit [Null = [Uploaded with autoCommit]]: "))
 
 def commit():
     try:
-            if fileName == '*':
+            if fileName == "":
                 os.system('git add *')
             else:
-                os.system('git add "' + fileName + '"')
+                os.system('git add ' + fileName)
 
             if commitMessage == "":
                 os.system('git commit -m "[Uploaded with autoCommit]"')
